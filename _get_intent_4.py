@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# coding: latin1
+# coding: utf-8
 
 # In[1]:
 
@@ -9,15 +9,15 @@ import pickle
 def get_intent(sent):
     # Flight/NoFlight
     filename = 'MNB_model_1.sav'
-    MNB_model_load = pickle.load(open(filename, 'rb'))
-    dtmvector = pickle.load(open('dtmvector_1', 'rb'))
-    tfidf_transformer = pickle.load(open('tfidf_transformer_1', 'rb'))
+    MNB_model_load = pickle.load(open(filename, 'rb'), encoding='latin1')
+    dtmvector = pickle.load(open('dtmvector_1', 'rb'), encoding='latin1')
+    tfidf_transformer = pickle.load(open('tfidf_transformer_1', 'rb'), encoding='latin1')
     
     # 4_Intents (Only Flight/Cost/Airline)
     filename_2 = 'MNB_model_2.sav'
-    MNB_model_load_2 = pickle.load(open(filename_2, 'rb'))
-    dtmvector_2 = pickle.load(open('dtmvector_2', 'rb'))
-    tfidf_transformer_2 = pickle.load(open('tfidf_transformer_2', 'rb'))
+    MNB_model_load_2 = pickle.load(open(filename_2, 'rb'), encoding='latin1')
+    dtmvector_2 = pickle.load(open('dtmvector_2', 'rb'), encoding='latin1')
+    tfidf_transformer_2 = pickle.load(open('tfidf_transformer_2', 'rb'), encoding='latin1')
     
     test = []
     test.append(sent)
