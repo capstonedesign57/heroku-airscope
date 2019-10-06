@@ -1,2 +1,2 @@
 # procfile
-web: gunicorn conf.wsgi.prod --log-file -
+web: gunicorn heroku-airscope.wsgi --log-file -
