@@ -1,2 +1,2 @@
 # procfile
-web: python manage.py
+web: gunicorn manage.py:app
