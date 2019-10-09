@@ -57,7 +57,6 @@ sklearn==0.0
 soupsieve==1.9.4
 telepot==12.7
 tensorboard==2.0.0
-tensorflow==2.0.0
 tensorflow-estimator==2.0.0
 termcolor==1.1.0
 tf-keras-contrib==2.0.8
