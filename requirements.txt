@@ -28,6 +28,7 @@ jupyter-client==5.3.3
 jupyter-core==4.5.0
 Keras==2.2.4
 Keras-Applications==1.0.8
+keras-contrib==2.0.8
 Keras-Preprocessing==1.1.0
 Markdown==3.1.1
 multidict==4.5.2
@@ -59,6 +60,7 @@ telepot==12.7
 tensorboard==2.0.0
 tensorflow-estimator==2.0.0
 termcolor==1.1.0
+tf-keras-contrib==2.0.8
 tornado==6.0.3
 traitlets==4.3.3
 urllib3==1.25.6
