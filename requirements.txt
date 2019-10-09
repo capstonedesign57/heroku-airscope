@@ -13,7 +13,6 @@ decorator==4.4.0
 dj-database-url==0.5.0
 gunicorn==19.9.0
 h5py==2.10.0
--e git+https://github.com/capstonedesign57/heroku-airscope@0f11bf50b78569b6e63312be6df1e4d1a5a26e0e#egg=heroku
 idna==2.8
 ipykernel==5.1.2
 ipython==7.8.0
