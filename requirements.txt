@@ -59,7 +59,6 @@ telepot==12.7
 tensorboard==2.0.0
 tensorflow-estimator==2.0.0
 termcolor==1.1.0
-tf-keras-contrib==2.0.8
 tornado==6.0.3
 traitlets==4.3.3
 urllib3==1.25.6
