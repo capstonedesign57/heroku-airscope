@@ -23,6 +23,7 @@ dill==0.2.9
 distro==1.4.0
 dj-database-url==0.5.0
 docutils==0.15.2
+en-coref-md==3.0.0
 filelock==3.0.12
 Flask==1.1.1
 gast==0.2.2
@@ -33,7 +34,7 @@ googledrivedownloader==0.4
 grpcio==1.24.1
 gunicorn==19.9.0
 h5py==2.10.0
--e git+https://github.com/capstonedesign57/heroku-airscope@331cf055a54c014413df2e765581eaa2890cd2de#egg=heroku
+-e git+https://github.com/capstonedesign57/heroku-airscope@87d0abab6d23da3022e5670258c36beae5615722#egg=heroku
 idna==2.8
 importlib-metadata==0.23
 ipykernel==5.1.2
@@ -99,6 +100,7 @@ tensorboard==2.0.0
 tensorflow==2.0.0
 tensorflow-estimator==2.0.0
 termcolor==1.1.0
+test==0.0.0
 tf-keras-contrib==2.0.8
 thinc==6.10.3
 toml==0.10.0
