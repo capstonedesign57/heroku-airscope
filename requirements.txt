@@ -34,7 +34,7 @@ googledrivedownloader==0.4
 grpcio==1.24.1
 gunicorn==19.9.0
 h5py==2.10.0
--e git+https://github.com/capstonedesign57/heroku-airscope@a3be8f6aeaad181363ed082b2e56a55ac1315007#egg=heroku
+-e git+https://github.com/capstonedesign57/heroku-airscope@331cf055a54c014413df2e765581eaa2890cd2de#egg=heroku
 idna==2.8
 importlib-metadata==0.23
 ipykernel==5.1.2
