@@ -23,7 +23,6 @@ dill==0.2.9
 distro==1.4.0
 dj-database-url==0.5.0
 docutils==0.15.2
-en-coref-md==3.0.0
 filelock==3.0.12
 Flask==1.1.1
 gast==0.2.2
@@ -34,7 +33,7 @@ googledrivedownloader==0.4
 grpcio==1.24.1
 gunicorn==19.9.0
 h5py==2.10.0
--e git+https://github.com/capstonedesign57/heroku-airscope@1e85e90b02201f4aea2fe1bde60ae96032d69403#egg=heroku
+-e git+https://github.com/capstonedesign57/heroku-airscope@88a99ea7774d540a47d2d3104db742fab429a0dd#egg=heroku
 idna==2.8
 importlib-metadata==0.23
 ipykernel==5.1.2
