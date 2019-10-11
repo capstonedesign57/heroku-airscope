@@ -24,7 +24,6 @@ dill==0.2.9
 distro==1.4.0
 dj-database-url==0.5.0
 docutils==0.15.2
--e https://github.com/huggingface/neuralcoref-models/releases/download/en_coref_md-3.0.0/en_coref_md-3.0.0.tar.gz
 filelock==3.0.12
 Flask==1.1.1
 gast==0.2.2
