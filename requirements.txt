@@ -1,4 +1,4 @@
---extra-index-url https://github.com/keras-team/keras-contrib/tarball/master#egg=keras_contrib
+--extra-index-url -e https://github.com/keras-team/keras-contrib/tarball/master#egg=keras_contrib
 absl-py==0.8.1
 aiohttp==3.6.1
 appnope==0.1.0
