@@ -1,4 +1,4 @@
---extra-index-url -e https://github.com/keras-team/keras-contrib/tarball/master#egg=keras_contrib
+--index-url https://github.com/keras-team/keras-contrib.git
 absl-py==0.8.1
 aiohttp==3.6.1
 appnope==0.1.0
@@ -50,7 +50,8 @@ jupyter-client==5.3.3
 jupyter-core==4.5.0
 Keras==2.2.4
 Keras-Applications==1.0.8
-keras-contrib==2.0.8
+-e https://github.com/keras-team/keras-contrib/tarball/master#egg=keras_contrib
+-e .
 Keras-Preprocessing==1.1.0
 kiwisolver==1.1.0
 Markdown==3.1.1
