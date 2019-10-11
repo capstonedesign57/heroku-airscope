@@ -1,1 +1,2 @@
-
+git+https://www.github.com/keras-team/keras-contrib.git
+https://github.com/huggingface/neuralcoref-models/releases/download/en_coref_md-3.0.0/en_coref_md-3.0.0.tar.gz
