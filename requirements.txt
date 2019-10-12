@@ -13,6 +13,7 @@ idna-ssl==1.1.0
 joblib==0.14.0
 Keras==2.3.1
 Keras-Applications==1.0.8
+-e git+https://github.com/keras-team/keras-contrib.git/@master#egg=keras-contrib
 Keras-Preprocessing==1.1.0
 Markdown==3.1.1
 multidict==4.5.2
