@@ -21,8 +21,8 @@ def words(text):
 # In[3]:
 
 
-WORDS = Counter(words(open('_corpus.txt', encoding="utf-8").read()))
-
+# WORDS = Counter(words(open('_corpus.txt', encoding="utf-8").read()))
+WORDS = Counter(words(open('nltk.txt', encoding="utf-8").read()))
 
 # In[4]:
 
