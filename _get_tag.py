@@ -3,6 +3,7 @@
 
 # In[4]:
 
+from tensorflow.keras import backend
 from keras_contrib.layers import CRF
 from keras_contrib.losses import crf_loss
 from keras_contrib.metrics import crf_viterbi_accuracy
