@@ -14,10 +14,12 @@ html5lib==0.9999999
 idna==2.8
 idna-ssl==1.1.0
 joblib==0.14.0
+Keras==2.2.4
 Keras-Applications==1.0.8
 -e git+https://github.com/keras-team/keras-contrib.git/@382f6a2b7739064a1281c1cacdb792bb96436f27#egg=keras_contrib
 Keras-Preprocessing==1.1.0
 Markdown==3.1.1
+mock==3.0.5
 multidict==4.5.2
 nltk==3.4.5
 numpy==1.16.4
@@ -33,8 +35,9 @@ scipy==1.3.1
 six==1.12.0
 sklearn==0.0
 telepot==12.7
-tensorboard==1.9.0
-tensorflow==1.9.0
+tensorboard==1.13.1
+tensorflow==1.13.1
+tensorflow-estimator==1.13.0
 termcolor==1.1.0
 typing-extensions==3.7.4
 urllib3==1.25.6
