@@ -17,7 +17,7 @@ def getdb():
     user = 'x3h6q2o87taceakh',
     passwd = 'eh2lx3rowe8pty87',
     db = 'xw6svbp8hrjpwvag',
-    charset = 'utf8',
+    # charset = 'utf8',
     autocommit = True)
     
     return mydb
