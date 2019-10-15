@@ -19,7 +19,5 @@ def getdb():
     db = 'xw6svbp8hrjpwvag',
     # charset = 'utf8',
     autocommit = True)
-    
-    cursor = mydb.cursor()
 
-    return mydb, cursor
+    return mydb
