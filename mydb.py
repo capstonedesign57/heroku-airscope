@@ -20,14 +20,6 @@ def getdb():
     # charset = 'utf8',
     autocommit = True)
     
-    cursor = db.cursor()
+    cursor = mydb.cursor()
 
-    cursor.execute("SELECT VERSION()")
-
-    data = cursor.fetchone()
-
-    print("Database version : %s " % data)
-
-    db.close()
-
-    return mydb
+    return mydb, cursor
