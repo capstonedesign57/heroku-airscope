@@ -12,6 +12,8 @@ import sys
 import time
 import re
 
+import pymysql
+
 
 # In[3]:
 
@@ -20,10 +22,20 @@ import re
 from _get_intent_4 import get_intent
 from _spelling_corrector import _correction
 from _get_tag import get_element, todf
-from mydb import getdb
+# from mydb import getdb
 from _get_view import getroute
 from todatefomat import _date
 
+def getdb():
+    mydb = pymysql.connect(
+    host = 'z1ntn1zv0f1qbh8u.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+    port = 3306,
+    user = 'x3h6q2o87taceakh',
+    passwd = 'eh2lx3rowe8pty87',
+    db = 'xw6svbp8hrjpwvag',
+    # charset = 'utf8',
+    autocommit = True)
+    return mydb
 
 # In[4]:
 
