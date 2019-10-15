@@ -10,7 +10,7 @@ import pymysql
 # In[4]:
 
 
-def getdb():
+"""def getdb():
     mydb = pymysql.connect(
     host = 'z1ntn1zv0f1qbh8u.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
     port = 3306,
@@ -20,4 +20,15 @@ def getdb():
     # charset = 'utf8',
     autocommit = True)
 
+    return mydb"""
+    
+def getdb():
+    mydb = pymysql.connect(
+    host = 'localhost',
+    port = 3306,
+    user = 'root',
+    passwd = 'Jellyboxpop2@',
+    db = 'xw6svbp8hrjpwvag',
+    autocommit = True)
+    
     return mydb
