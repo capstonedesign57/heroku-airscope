@@ -52,7 +52,7 @@ def handle(msg):
     
     content_type, chat_type, chat_id = telepot.glance(msg)
 
-    if msg['text'].lower() in ['hi', 'hello', 'airscope', 'hey']:
+    if msg['text'].lower() in ['hi', 'hello', 'airscope', 'hey', 'bye', 'see you', 'thank you']:
         flag = 9
         
     if flag == 9:
