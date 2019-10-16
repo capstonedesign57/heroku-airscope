@@ -96,6 +96,33 @@ INSERT INTO `cost` VALUES (1,3163,16400),(2,3163,47500),(3,28,17100),(4,28,47500
 UNLOCK TABLES;
 
 --
+-- Temporary view structure for view `joinedroute`
+--
+
+DROP TABLE IF EXISTS `joinedroute`;
+/*!50001 DROP VIEW IF EXISTS `joinedroute`*/;
+SET @saved_cs_client     = @@character_set_client;
+/*!50503 SET character_set_client = utf8mb4 */;
+/*!50001 CREATE VIEW `joinedroute` AS SELECT 
+ 1 AS `route_id`,
+ 1 AS `airline`,
+ 1 AS `airline_id`,
+ 1 AS `src_airport`,
+ 1 AS `src_airport_id`,
+ 1 AS `dst_airport`,
+ 1 AS `dst_airport_id`,
+ 1 AS `stops`,
+ 1 AS `dpt_time`,
+ 1 AS `est_time`,
+ 1 AS `src_name`,
+ 1 AS `src_city`,
+ 1 AS `src_country`,
+ 1 AS `dst_name`,
+ 1 AS `dst_city`,
+ 1 AS `dst_country`*/;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Table structure for table `routes`
 --
 
@@ -155,6 +182,24 @@ LOCK TABLES `stops` WRITE;
 INSERT INTO `stops` VALUES (15,'PVG',3406,1),(21,'PVG',3406,1),(31,'NKM',5997,1),(45,'HKG',3077,1),(46,'HKG',3077,1),(50,'HKG',3077,1),(56,'NKM',5997,1),(57,'ICN',3930,1),(70,'PEK',3364,1),(80,'PEK',3364,1),(81,'PVG',3406,1),(127,'PVG',3406,1),(136,'TPE',2276,1),(148,'PUS',2372,1),(184,'ICN',3930,1),(188,'FUK',2305,1),(289,'CTS',2287,1),(299,'PEK',3364,1),(318,'YVR',156,1),(337,'TSA',2275,1),(337,'BKK',3885,2),(350,'DXB',2188,2),(350,'SIN',3316,1),(359,'WEH',6389,1),(378,'ADD',1107,2),(378,'PEK',3364,1),(389,'FUK',2305,1),(432,'FUK',2305,1),(432,'PUS',2372,2),(456,'CGQ',4380,1),(464,'TAO',3390,1),(464,'CKG',3393,2),(468,'CGQ',4380,1),(496,'FUK',2305,1),(551,'CJU',2370,1),(551,'PUS',2372,2),(552,'PVG',3406,1),(552,'ZUH',6355,2),(556,'CJU',2370,1),(556,'ICN',3930,2),(559,'ICN',3930,1),(559,'MWX',4189,2);
 /*!40000 ALTER TABLE `stops` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Final view structure for view `joinedroute`
+--
+
+/*!50001 DROP VIEW IF EXISTS `joinedroute`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `joinedroute` AS select `r`.`route_id` AS `route_id`,`r`.`airline` AS `airline`,`r`.`airline_id` AS `airline_id`,`r`.`src_airport` AS `src_airport`,`r`.`src_airport_id` AS `src_airport_id`,`r`.`dst_airport` AS `dst_airport`,`r`.`dst_airport_id` AS `dst_airport_id`,`r`.`stops` AS `stops`,`r`.`dpt_time` AS `dpt_time`,`r`.`est_time` AS `est_time`,`a`.`name` AS `src_name`,`a`.`city` AS `src_city`,`a`.`country` AS `src_country`,`b`.`name` AS `dst_name`,`b`.`city` AS `dst_city`,`b`.`country` AS `dst_country` from ((`routes` `r` join `airports` `a`) join `airports` `b`) where ((`r`.`src_airport_id` = `a`.`airport_id`) and (`r`.`dst_airport_id` = `b`.`airport_id`)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -165,4 +210,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-10-16  4:05:44
+-- Dump completed on 2019-10-16 20:15:51
