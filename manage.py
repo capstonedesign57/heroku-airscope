@@ -123,7 +123,7 @@ def handle(msg):
 
     if flag == 6:
         mydb = getdb()
-        route = getroute(intent, tagged, mydb)
+        route = getroute(intent, tagged, mydb, bot, chat_id)
         route = route.iloc[0]
         bot.sendMessage(chat_id, '\n{}\n'.format("here are your results:"))
         bot.sendMessage(chat_id, ' airline: {}({})\n depart: {} ({},{})\n arrive: {} ({},{})\n stops: {}\n departure time: {}\n arrival time: {}\n cost: {}\n\n'.format(route[1],route[0],route[2],route[3],route[4],route[5],route[6],route[7],route[8],route[9],route[10],route[11]))
