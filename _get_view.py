@@ -57,7 +57,7 @@ def getroute(intent, tagged, db):
     #sql="CREATE OR REPLACE VIEW selectedRoute AS SELECT route_id, airline, airline_id, src_airport, src_name, src_city, src_country, dst_airport, dst_name, dst_city, dst_country, stops, dpt_time, DATE_ADD(dpt_time, INTERVAL TIME_TO_SEC(est_time) SECOND) as arr_time FROM joinedRoute WHERE "+fromloc+" AND "+toloc+" AND DATE(dpt_time)="+dpt_date
     #curs.execute(sql)
     
-    sql="CREATE OR REPLACE VIEW selectedRoute AS SELECT route_id, airline, airline_id, src_airport, src_name, src_city, src_country, dst_airport, dst_name, dst_city, dst_country, stops, dpt_time, DATE_ADD(dpt_time, INTERVAL TIME_TO_SEC(est_time) SECOND) as arr_time FROM joinedRoute WHERE\'"+fromloc+"\' AND \'"+toloc+"\' AND DATE(dpt_time)=\'"+dpt_date+"\'"
+    sql = "CREATE OR REPLACE VIEW selectedRoute AS SELECT * FROM joinedRoute WHERE " + fromloc + " AND " + toloc + " AND DATE(dpt_time)=" + dpt_date
     curs.execute(sql)
     
     # selectedRoute에 airline_name, cost JOIN
