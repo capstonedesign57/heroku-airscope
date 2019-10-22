@@ -30,13 +30,13 @@ def getroute(intent, tagged, db, bot, chat_id):
     cursor = db.cursor(pymysql.cursors.DictCursor)
 
     # from, to, date 등 필요한 요소들 받아오기
-    fromloc = 'src_airport='
+    #fromloc = 'src_airport='
     for (a,) in get_airport(tagged[tagged['tag'].isin(['fromloc'])].element.tolist()[0],db):
         fromloc=fromloc+'\''+a+'\''+' or src_airport='
     #fromloc='('+fromloc[:-16]+')'
     fromloc = fromloc[:-16]
 
-    toloc = 'dst_airport='
+    #toloc = 'dst_airport='
     for (a,) in get_airport(tagged[tagged['tag'].isin(['toloc'])].element.tolist()[0],db):
         toloc=toloc+'\''+a+'\''+' or dst_airport='
     #toloc='('+toloc[:-16]+')'
@@ -61,7 +61,7 @@ def getroute(intent, tagged, db, bot, chat_id):
         SELECT route_id, airline, airline_id, src_airport, src_name, src_city, src_country, dst_airport, dst_name, dst_city, dst_country, stops, dpt_time, \
         DATE_ADD(dpt_time, INTERVAL TIME_TO_SEC(est_time) SECOND) as arr_time \
         FROM joinedRoute\
-        WHERE " + fromloc + " AND " + toloc
+        WHERE src_airport=" + fromloc + " AND dst_airport=" + toloc + " AND DATE(dpt_time)=" + dpt_date
         # WHERE " + fromloc + " AND " + toloc + " AND DATE(dpt_time)=" + dpt_date
         # WHERE "+fromloc+" AND "+toloc+" AND DATE(dpt_time)="+dpt_date
     curs.execute(sql)
