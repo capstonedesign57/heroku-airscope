@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Manage
+# In[1]:
 
 # In[2]:
 
@@ -12,10 +12,10 @@ import sys
 import time
 import re
 
+
 # In[3]:
 
 
-# Import User Libraries
 from _get_intent_4 import get_intent
 from _spelling_corrector import _correction
 from _get_tag import get_element, todf
@@ -23,18 +23,16 @@ from mydb import getdb
 from _get_view import getroute
 from todatefomat import _date
 
+
 # In[4]:
 
 
 token = "682502305:AAHgR74_gRqpboE9VYFVsAOtAjZ5Tk1qtaw"
-# my_id = "729092704"
-
+my_id = "729092704"
 bot = telepot.Bot(token)
 status = True
-
 InfoMsg = "WELCOME"
 Answer = "SEE YOU AGAIN"
-
 state = 0
 flag = 9
 
@@ -52,7 +50,7 @@ def handle(msg):
     
     content_type, chat_type, chat_id = telepot.glance(msg)
 
-    if msg['text'].lower() in ['hi', 'hello', 'airscope', 'hey', 'bye', 'see you', 'thank you']:
+    if msg['text'].lower() in ['hi', 'hello', 'airscope', 'hey']:
         flag = 9
         
     if flag == 9:
@@ -65,6 +63,8 @@ def handle(msg):
                 user_input = _correction(msg['text'])
                 # bot.sendMessage(chat_id, user_input)
                 intent = get_intent(user_input)
+                if intent==False:
+                    bot.sendMessage(chat_id,"Sorry, I can't answer that.")
                 intent = ''.join(intent)
                 # bot.sendMessage(chat_id, intent)
                 tagged = get_element(user_input, intent, bot)
@@ -73,53 +73,53 @@ def handle(msg):
 
     if flag == 1:
         tagged.element[1] = msg['text']
-        flag = 0
+        flag=0
     elif flag == 2:
         tagged.element[3] = msg['text']
-        flag = 0
+        flag=0
     elif flag == 3:
         date = _date(todf(msg['text']))
-        tagged.element[4] = date
-        flag = 0
+        tagged.element[4]=date
+        flag=0
     elif flag == 4:
         tagged.element[0]=msg['text']
-        flag = 0
+        flag=0
     elif flag == 5:
         reply = msg['text'].lower()
         if "cheapest" in reply:
-            tagged.element[7] = 1
-            flag = 0
+            tagged.element[7]=1
+            flag=0
         else:
             if reply.isdigit:
-                tagged.element[6] = '\'' + re.findall('\d+', reply)[0] + '\''
-                flag = 0
+                tagged.element[6]='\''+re.findall('\d+', reply)[0]+'\''
+                flag=0
             else:
                 bot.sendMessage(chat_id,'{}'.format("Sorry, I didn't get that. Below how much?"))
-                reply = msg['text']
-                tagged.element[6] = '\''+re.findall('\d+', reply)[0] + '\''
-                flag = 0
+                reply=msg['text']
+                tagged.element[6]='\''+re.findall('\d+', reply)[0]+'\''
+                flag=0
     else:
-        flag = flag
+        flag=flag
     
     if flag == 0 :
         # if null값 있으면 flag=1, 모두 있으면 flag=2
-        if tagged[tagged['tag'].isin(['fromloc'])].element.tolist()[0] == '':
+        if tagged[tagged['tag'].isin(['fromloc'])].element.tolist()[0]=='':
             bot.sendMessage(chat_id,'{}'.format("Where would you like to depart?"))
             flag = 1
-        elif tagged[tagged['tag'].isin(['toloc'])].element.tolist()[0] == '':
+        elif tagged[tagged['tag'].isin(['toloc'])].element.tolist()[0]=='':
             bot.sendMessage(chat_id,'{}'.format("Where would you want to arrive?"))
             flag = 2
-        elif tagged[tagged['tag'].isin(['dpttime'])].element.tolist()[0] == '' and tagged[tagged['tag'].isin(['arrtime'])].element.tolist()[0]=='':
-            bot.sendMessage(chat_id,'{}'.format("When would you like to depart?"))
+        elif tagged[tagged['tag'].isin(['dpttime'])].element.tolist()[0]=='' and tagged[tagged['tag'].isin(['arrtime'])].element.tolist()[0]=='':
+            bot.sendMessage(chat_id,'{}'.format("When do you want to depart?"))
             flag = 3  
-        elif 'AskFlightWithAirline' in intent and tagged[tagged['tag'].isin(['airline'])].element.tolist()[0] == '':
+        elif 'AskFlightWithAirline' in intent and tagged[tagged['tag'].isin(['airline'])].element.tolist()[0]=='':
                 bot.sendMessage(chat_id, '{}'.format('Which airline would you like'))
                 flag = 4
-        elif 'AskFlightWithCost' in intent and tagged[tagged['tag'].isin(['cheapest'])].element.tolist()[0] == 0 and tagged[tagged['tag'].isin(['cost'])].element.tolist()[0]=='':
+        elif 'AskFlightWithCost' in intent and tagged[tagged['tag'].isin(['cheapest'])].element.tolist()[0]==0 and tagged[tagged['tag'].isin(['cost'])].element.tolist()[0]=='':
                 bot.sendMessage(chat_id, '{}'.format("Do you want the cheapest flight or a ticket below a certain price?"))
                 flag = 5
         else: 
-            flag = 6
+            flag=6
 
     if flag == 6:
         mydb = getdb()
@@ -133,4 +133,10 @@ bot.message_loop(handle)
 
 while status == True:
     time.sleep(10)
+
+
+# In[ ]:
+
+
+
 
