@@ -33,12 +33,14 @@ def getroute(intent, tagged, db, bot, chat_id):
     fromloc = 'src_airport='
     for (a,) in get_airport(tagged[tagged['tag'].isin(['fromloc'])].element.tolist()[0],db):
         fromloc=fromloc+'\''+a+'\''+' or src_airport='
-    fromloc='('+fromloc[:-16]+')'
+    #fromloc='('+fromloc[:-16]+')'
+    fromloc = fromloc[:-16]
 
     toloc = 'dst_airport='
     for (a,) in get_airport(tagged[tagged['tag'].isin(['toloc'])].element.tolist()[0],db):
         toloc=toloc+'\''+a+'\''+' or dst_airport='
-    toloc='('+toloc[:-16]+')'
+    #toloc='('+toloc[:-16]+')'
+    toloc = toloc[:-16]
     
     # stop이 있는 경우
     flag = 0
