@@ -131,6 +131,6 @@ def handle(msg):
         
 bot.message_loop(handle)
 
-#while status == True:
-#    time.sleep(10)
+while status == True:
+    time.sleep(10)
 
