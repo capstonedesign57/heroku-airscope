@@ -54,14 +54,14 @@ def getroute(intent, tagged, db):
 
     
     # create selectedRoute
-    sql="CREATE OR REPLACE TABLE selectedRoute AS SELECT route_id, airline, airline_id, src_airport, src_name, src_city, src_country, dst_airport, dst_name, dst_city, dst_country, stops, dpt_time, DATE_ADD(dpt_time, INTERVAL TIME_TO_SEC(est_time) SECOND) as arr_time FROM joinedRoute WHERE "+fromloc+" AND "+toloc+" AND DATE(dpt_time)="+dpt_date
+    #sql="CREATE OR REPLACE VIEW selectedRoute AS SELECT route_id, airline, airline_id, src_airport, src_name, src_city, src_country, dst_airport, dst_name, dst_city, dst_country, stops, dpt_time, DATE_ADD(dpt_time, INTERVAL TIME_TO_SEC(est_time) SECOND) as arr_time FROM joinedRoute WHERE "+fromloc+" AND "+toloc+" AND DATE(dpt_time)="+dpt_date
+    #curs.execute(sql)
+    
+    sql="CREATE OR REPLACE VIEW selectedRoute AS SELECT route_id, airline, airline_id, src_airport, src_name, src_city, src_country, dst_airport, dst_name, dst_city, dst_country, stops, dpt_time, DATE_ADD(dpt_time, INTERVAL TIME_TO_SEC(est_time) SECOND) as arr_time FROM joinedRoute WHERE\'"+fromloc+"\' AND \'"+toloc+"\' AND DATE(dpt_time)=\'"+dpt_date+"\'"
     curs.execute(sql)
     
-    #sql="CREATE OR REPLACE VIEW selectedRoute AS SELECT route_id, airline, airline_id, src_airport, src_name, src_city, src_country, dst_airport, dst_name, dst_city, dst_country, stops, dpt_time, DATE_ADD(dpt_time, INTERVAL TIME_TO_SEC(est_time) SECOND) as arr_time FROM joinedRoute WHERE "+fromloc+" AND "+toloc+" AND DATE(dpt_time)="+dpt_date
-    #   curs.execute(sql)
-       
     # selectedRoute에 airline_name, cost JOIN
-    sql2="CREATE OR REPLACE TABLE Route AS SELECT s.*, a.name as airline_name, c.cost FROM selectedRoute as s, airlines as a, cost as c WHERE s.airline_id=a.airline_id AND s.route_id=c.route_id"
+    sql2="CREATE OR REPLACE VIEW Route AS SELECT s.*, a.name as airline_name, c.cost FROM selectedRoute as s, airlines as a, cost as c WHERE s.airline_id=a.airline_id AND s.route_id=c.route_id"
     curs.execute(sql2)
 
     #### 경유지가 있는 경우는???
